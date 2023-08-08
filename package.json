@@ -50,5 +50,8 @@
     "fork:node": "node ./_scripts.js fork:node",
     "fork:test": "node ./_scripts.js fork:test",
     "tenderly:push": "node ./_scripts.js tenderly:push"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-verify": "^1.1.0"
   }
 }

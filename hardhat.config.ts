@@ -10,6 +10,7 @@ import 'solidity-coverage';
 import 'hardhat-deploy';
 import 'hardhat-deploy-ethers';
 import 'hardhat-deploy-tenderly';
+import '@nomiclabs/hardhat-etherscan';
 
 import {node_url, accounts, addForkConfiguration} from './utils/network';
 
@@ -62,6 +63,10 @@ const config: HardhatUserConfig = {
 		goerli: {
 			url: node_url('goerli'),
 			accounts: accounts('goerli'),
+		},
+		metis: {
+			url: node_url('metis'),
+			accounts: accounts('metis'),
 		},
 	}),
 	paths: {
