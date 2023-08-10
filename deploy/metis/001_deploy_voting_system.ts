@@ -3,7 +3,7 @@ import {DeployFunction} from 'hardhat-deploy/types';
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 	const {deployer} = await hre.getNamedAccounts();
-	const {deploy, get} = hre.deployments;
+	const {deploy} = hre.deployments;
 
 	const votingToken = await deploy('VotingToken', {
 		from: deployer,
@@ -11,6 +11,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 		log: true,
 		autoMine: true, // speed up deployment on local network (ganache, hardhat), no effect on live networks
 	});
+
 	await deploy('VotingSystem', {
 		from: deployer,
 		args: [votingToken.address],
