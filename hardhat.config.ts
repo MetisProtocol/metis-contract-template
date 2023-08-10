@@ -10,7 +10,7 @@ import 'solidity-coverage';
 import 'hardhat-deploy';
 import 'hardhat-deploy-ethers';
 import 'hardhat-deploy-tenderly';
-// import '@nomiclabs/hardhat-etherscan'; // TODO: add contract verification
+import '@nomicfoundation/hardhat-verify';
 
 import {node_url, accounts, addForkConfiguration} from './utils/network';
 
@@ -97,6 +97,21 @@ const config: HardhatUserConfig = {
 	tenderly: {
 		project: 'template-ethereum-contracts',
 		username: process.env.TENDERLY_USERNAME as string,
+	},
+	etherscan: {
+		apiKey: {
+			metis: 'avascan', // apiKey is not required, just set a placeholder
+		},
+		customChains: [
+			{
+				network: 'metis',
+				chainId: 1088,
+				urls: {
+					apiURL: 'https://api.avascan.info/v2/network/mainnet/evm/1088/etherscan',
+					browserURL: 'https://metisscan.info',
+				},
+			},
+		],
 	},
 };
 
