@@ -4,6 +4,7 @@ import {VotingSystem, VotingToken as VT} from '../typechain-types';
 import {setupUsers, setupUser} from './utils';
 
 const setup = deployments.createFixture(async () => {
+	await deployments.fixture('VotingToken');
 	await deployments.fixture('VotingSystem');
 	const contracts = {
 		VotingToken: await ethers.getContract<VT>('VotingToken'),
