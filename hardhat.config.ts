@@ -10,7 +10,7 @@ import 'solidity-coverage';
 import 'hardhat-deploy';
 import 'hardhat-deploy-ethers';
 import 'hardhat-deploy-tenderly';
-import '@nomiclabs/hardhat-etherscan';
+// import '@nomiclabs/hardhat-etherscan'; // TODO: add contract verification
 
 import {node_url, accounts, addForkConfiguration} from './utils/network';
 
@@ -30,7 +30,8 @@ const config: HardhatUserConfig = {
 	},
 	namedAccounts: {
 		deployer: 0,
-		simpleERC20Beneficiary: 1,
+		owner: 0,
+		voter: 1,
 	},
 	networks: addForkConfiguration({
 		hardhat: {
